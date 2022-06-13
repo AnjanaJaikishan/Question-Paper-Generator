@@ -1,0 +1,77 @@
+<h1>Users</h1>
+{% for user in users %}
+<p>
+  Id:{{user.id}}, Email:{{user.email}}, Password: {{user.password}}, Full Name:
+  {{user.full_name}}, Semesters: {{user.sems}}
+</p>
+{% endfor %}
+
+<h1>Semesters</h1>
+{% for sem in sems %}
+<p>
+  Id:{{sem.id}}, Sem:{{sem.sem}}, User Id: {{sem.user_id}}, Subjects:
+  {{sem.subs}}
+</p>
+{% endfor %}
+
+<h1>Subjects</h1>
+{% for sub in subs %}
+<p>
+  Id:{{sub.id}}, Subject Name:{{sub.subject_ame}}, Semester Id:
+  {{sub.semester_id}}, Modules: {{sub.mods}}
+</p>
+{% endfor %}
+
+<h1>MCQs</h1>
+{% for mcq in mcqs %}
+<p>
+  Id:{{mcq.id}}, Question:{{mcq.question}}, Option 1:{{mcq.option1}}, Option
+  2:{{mcq.option2}}, Option 3:{{mcq.option3}}, Option 4:{{mcq.option4}}, Subject
+  Id: {{mcq.subject_id}}
+</p>
+
+{% endfor %}
+
+<h1>Modules</h1>
+{% for mod in mods %}
+<p>
+  Id:{{mod.id}}, Module Name:{{mod.module_name}}, Subject Id:
+  {{mod.subject_id}}, Questions: {{mod.questions}}
+</p>
+
+{% endfor %}
+
+<h1>Questions</h1>
+{% for que in ques %}
+<p>
+  Id:{{que.id}}, Question:{{que.question_content}}, Classification:
+  {{que.question_category}} , Module Id: {{que.module_id}}
+</p>
+
+{% endfor %}
+<h1>Templates</h1>
+{% for temp in temps %}
+<p>
+  Id:{{temp.id}}, Name:{{temp.name}}, MCQs: {{temp.mcqs}} Total:{{temp.totalQ}},
+  Compulsory:{{temp.compulsoryQ}}, Optional:{{temp.optionalQ}},
+  Marks:{{temp.marks}}, User Id:{{temp.user_id}}
+</p>
+{% endfor %}
+
+<h1>Sub Questions</h1>
+{% for subque in subques %}
+<p>
+  Id:{{subque.id}}, Question Number:{{subque.question_number}},
+  Subquestions:{{subque.subquestions}}, Template Id:{{subque.template_id}}
+</p>
+
+{% endfor %}
+
+<h1>Sub Questions Details</h1>
+{% for subque in subqueinfo %}
+<p>
+  Id:{{subque.id}}, Module:{{subque.module}}, Marks:{{subque.marks}},
+  Bloom's:{{subque.bloom}}, Subquestion of: {{subque.subquestion_of}}
+</p>
+
+{% endfor %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %}Subjects{% endblock %}{% block
+content %}
+<div class="subject-header-img">
+  <p align="center" class="semester">SUBJECTS</p>
+  <p class="sem-no-display" align="center">Semester : {{sem.sem}}</p>
+</div>
+<div class="list-img">
+  <ul class="subjectWrap" id="subjects">
+    {% for sub in sem.subs %}
+    <li>
+      <div
+        class="subject-name"
+        onClick="showModules({{sub.id}}, {{ sub.semester_id }})"
+      >
+        {{ sub.subject_ame }}
+      </div>
+      <button
+        type="button"
+        class="close"
+        onClick="deleteSub({{ sub.id }}, {{ sub.semester_id }})"
+      >
+        <span aria-hidden="true">Delete</span>
+      </button>
+      <button
+        type="button"
+        class="close"
+        onClick="updateSub({{ sub.id }}, {{ sub.semester_id }})"
+      >
+        <span aria-hidden="true">Update</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<form method="POST">
+  <div class="add-area">
+    <div>
+      <textarea
+        name="sub"
+        id="sub"
+        class="form-control semester-textarea"
+        placeholder="Add Subject"
+      ></textarea>
+    </div>
+    <div>
+      <button type="submit" class="sem-btn">Add</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

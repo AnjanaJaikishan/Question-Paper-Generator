@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% block title %} Question Paper Format {% endblock %}
+{% block content %}
+<form method="POST">
+  <h3 align="center">Create Template</h3>
+  <div class="form-group">
+    <label for="templateName">Question Paper Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="templateName"
+      name="templateName"
+      placeholder="Enter name of question paper"
+    />
+  </div>
+  <div class="form-group">
+    <label for="subjectCode">Subject Code</label>
+    <input
+      type="text"
+      class="form-control"
+      id="subjectCode"
+      name="subjectCode"
+      placeholder="Enter subject code"
+    />
+  </div>
+  <div class="form-group">
+    <label for="duration">Exam Duration</label>
+    <input
+      type="number"
+      min="0"
+      max="1440"
+      class="form-control"
+      id="duration"
+      name="duration"
+      placeholder="Enter duration in minutes"
+    />
+  </div>
+  <div class="form-group">
+    <label for="instructions">Instructions</label>
+    <input
+      type="text"
+      class="form-control"
+      id="instructions"
+      name="instructions"
+      placeholder="Enter instructions if any"
+    />
+  </div>
+  <div class="form-group">
+    <label for="mcqs">Number of MCQs</label>
+    <input
+      type="text"
+      min="0"
+      max="100"
+      class="form-control"
+      id="mcqs"
+      name="mcqs"
+      placeholder="Enter MCQs"
+    />
+  </div>
+  <div class="form-group">
+    <label for="totalQuestions">Total Questions</label>
+    <input
+      type="number"
+      min="0"
+      max="20"
+      class="form-control"
+      id="totalQuestions"
+      name="totalQuestions"
+      placeholder="Enter total number of questions"
+    />
+  </div>
+  <div class="form-group">
+    <label for="compulsoryQuestions">Compulsory Questions</label>
+    <input
+      type="number"
+      min="0"
+      max="20"
+      class="form-control"
+      id="compulsoryQuestions"
+      name="compulsoryQuestions"
+      placeholder="Enter number of compulsory questions"
+    />
+  </div>
+  <div class="form-group">
+    <label for="optionalQuestions">Optional Questions</label>
+    <input
+      type="number"
+      min="0"
+      max="20"
+      class="form-control"
+      id="optionalQuestions"
+      name="optionalQuestions"
+      placeholder="Enter number of optional questions"
+    />
+  </div>
+  <div class="form-group">
+    <label for="marks">Marks</label>
+    <input
+      type="number"
+      min="0"
+      max="100"
+      class="form-control"
+      id="marks"
+      name="marks"
+      placeholder="Enter maximum marks"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

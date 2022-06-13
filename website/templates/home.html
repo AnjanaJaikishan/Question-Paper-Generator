@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
+<div class="header-img">
+  <p align="center" class="semester">SEMESTERS</p>
+</div>
+<div class="list-img">
+  <ul class="tilesWrap" id="notes">
+    {% for sem in user.sems %}
+    <li>
+      <div class="semester-number" onClick="showSubjects({{sem.id}})">
+        {{ sem.sem }}
+      </div>
+      <button type="button" class="close" onClick="deleteSem({{ sem.id }})">
+        <span aria-hidden="true">Delete</span>
+      </button>
+      <button type="button" class="close" onClick="updateSem({{ sem.id }})">
+        <span aria-hidden="true">Update</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<form method="POST">
+  <div class="add-area">
+    <div>
+      <textarea
+        name="sem"
+        id="sem"
+        class="form-control semester-textarea"
+        placeholder="Add Semester"
+      ></textarea>
+    </div>
+    <div>
+      <button type="submit" class="sem-btn">Add</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

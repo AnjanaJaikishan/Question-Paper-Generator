@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
+
+<section class="signup-page">
+  <div class="signup-session">
+    <div class="left-login"></div>
+    <form class="signup-form" method="POST">
+      <h4 class="signup">Sign Up for free!</h4>
+
+      <!--Email-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <label for="email" class="login-label">Email</label>
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+        </style>
+      </div>
+
+      <!--Full Name-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="full Name"
+          required
+        />
+        <label for="firstName" class="login-label">Full Name</label>
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+        </style>
+      </div>
+
+      <!--Institution Name-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="text"
+          id="institutionName"
+          name="institutionName"
+          placeholder="Institution Name"
+          required
+        />
+        <label for="institutionName" class="login-label"
+          >Institution Name</label
+        >
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+        </style>
+      </div>
+
+      <!--Department-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="text"
+          id="department"
+          name="department"
+          placeholder="Department"
+          required
+        />
+        <label for="department" class="login-label">Department</label>
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+        </style>
+      </div>
+
+      <!--Designation-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="text"
+          id="designation"
+          name="designation"
+          placeholder="Designation"
+          required
+        />
+        <label for="designation" class="login-label">Designation</label>
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+        </style>
+      </div>
+
+      <!--Password-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="password"
+          id="password1"
+          name="password1"
+          placeholder="Password"
+          required
+        />
+        <label for="password1" class="login-label">Password</label>
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+          .st1 {
+            fill: #010101;
+          }
+        </style>
+      </div>
+
+      <!--Confirm Password-->
+      <div class="floating-label">
+        <input
+          class="login-input"
+          type="password"
+          id="password2"
+          name="password2"
+          placeholder="Confirm Password"
+          required
+        />
+        <label for="password2" class="login-label">Password</label>
+
+        <style type="text/css">
+          .st0 {
+            fill: none;
+          }
+          .st1 {
+            fill: #010101;
+          }
+        </style>
+      </div>
+
+      <button type="submit" class="signup-button">Submit</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

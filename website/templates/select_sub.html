@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block title %} Select Subject {% endblock %} {%
+block content %}
+<div>Select Subject</div>
+{% for sub in subs %}
+<div class="subList" onClick="displayCreateTemplate({{sub.id}}, {{semId}})">
+  {{sub.subject_ame}}
+</div>
+{% endfor %} {% endblock %}

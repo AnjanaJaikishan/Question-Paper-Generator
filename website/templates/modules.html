@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block title %}Modules{% endblock %}{% block content
+%}
+<div class="subject-header-img">
+  <p align="center" class="semester">MODULES</p>
+  <p class="sem-no-display" align="center">Subject : {{sub.subject_ame}}</p>
+</div>
+<div class="list-img">
+  <ul class="modulesWrap" id="subjects">
+    {% for mod in sub.mods %}
+    <li>
+      <div
+        class="subject-name"
+        onClick="showQuestions({{mod.id}}, {{ mod.subject_id }}, {{ sem.id }})"
+      >
+        {{ mod.module_name }}
+      </div>
+      <button
+        type="button"
+        class="close"
+        onClick="deleteMod({{ mod.id }}, {{ mod.subject_id }}, {{ sem.id }})"
+      >
+        <span aria-hidden="true">Delete</span>
+      </button>
+      <button
+        type="button"
+        class="close"
+        onClick="updateMod({{ mod.id }}, {{ mod.subject_id }}, {{ sem.id }})"
+      >
+        <span aria-hidden="true">Update</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<form method="POST">
+  <div class="add-area">
+    <div>
+      <textarea
+        name="mod"
+        id="mod"
+        class="form-control semester-textarea"
+        placeholder="Add Module"
+      ></textarea>
+    </div>
+    <div>
+      <button type="submit" class="sem-btn">Add</button>
+    </div>
+  </div>
+</form>
+
+<a href="/semester/{{ semId }}/{{subId}}/mcq">
+  <button>Add MCQs</button>
+</a>
+
+{% endblock %}
