@@ -13,6 +13,10 @@
             id="email"
             name="email"
             placeholder="Email"
+            autocomplete="off"
+            readonly
+            onclick="this.removeAttribute(
+                    'readOnly');"
           />
           <label for="email" class="login-label">Email</label>
           <div class="icon">

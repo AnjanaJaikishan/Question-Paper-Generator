@@ -1,58 +1,92 @@
 {% extends "base.html" %} {% block title %} Set Template {% endblock %} {% block
 content %}
+
 <form method="POST">
-  {% set mrks = marks %} {% if mcqs > 0 %}
-  <h1>Multiple Choice Questions</h1>
-  <span>Number: {{ mcqs }}</span>
-  {% endif %} {% for sub in subquestions %} {% if sub.question_number <=
-  compulsory %}
-  <h1>Question {{sub.question_number}}</h1>
-  {% for i in range(sub.subquestions) %}
-  <h5>{{i+1}}</h5>
-  <select name="cMod" id="cMod">
-    <option value="" disabled selected>Choose module</option>
-    {% for mod in subject.mods %}
-    <option value="{{ mod.module_name }}">{{ mod.module_name }}</option>
-    {% endfor %}
-  </select>
-  <select name="cMarks" id="cMarks">
-    <option value="" disabled selected>Marks</option>
-    {% for i in range(21) %}
-    <option value="{{i}}">{{ i }}</option>
-    {% endfor %}
-  </select>
-  <select name="cCO" id="cCO">
-    <option value="" disabled selected>Choose Bloom's Taxonomy Level</option>
-    {% for i in range(6) %}
-    <option value="{{i+1}}">{{ i+1 }}</option>
-    {% endfor %}
-  </select>
-  {% endfor %} {% else %}
-  <h1>Question {{sub.question_number}}</h1>
-  {% for i in range(sub.subquestions) %}
-  <h5>{{i+1}}</h5>
-  <select name="cMod" id="cMod">
-    <option value="" disabled selected>Choose module</option>
-    {% for mod in subject.mods %}
-    <option value="{{ mod.module_name }}">{{ mod.module_name }}</option>
-    {% endfor %}
-  </select>
-  <select name="cMarks" id="cMarks">
-    <option value="" disabled selected>Marks</option>
-    {% for i in range(21) %}
-    <option value="{{i}}">{{ i }}</option>
-    {% endfor %}
-  </select>
-  <select name="cCO" id="cCO">
-    <option value="" disabled selected>Choose Bloom's Taxonomy Level</option>
-    {% for i in range(6) %}
-    <option value="{{i+1}}">{{ i+1 }}</option>
-    {% endfor %}
-  </select>
-  {% endfor %} {% if (sub.question_number - compulsory)%2 !=0 %}
-  <h4>OR</h4>
-  {% endif %} {% endif %} {% endfor %}
-  <br />
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="addtemp-background">
+    <div class="addtemp-container">
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-button close"></div>
+            <div class="screen-header-button maximize"></div>
+            <div class="screen-header-button minimize"></div>
+          </div>
+          <div class="screen-header-right">
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="op-app-title">
+              <span>CHOOSE OPTIONAL QUESTIONS</span>
+            </div>
+          </div>
+          <div class="screen-body-item">
+            <div class="app-form">
+              <div class="app-form-group">
+                {% set mrks = marks %} {% if mcqs > 0 %}
+                <p class="op-question">Multiple Choice Questions : {{ mcqs }}</p>
+
+                {% endif %} {% for sub in subquestions %} {% if sub.question_number <=
+                compulsory %}
+                <p class="op-question">Question {{sub.question_number}}</p>
+                {% for i in range(sub.subquestions) %}
+                <p class="op-option">Sub-Question {{i+1}}</p>
+                
+                <select class="select-op" name="cMod" id="cMod">
+                  <option  value="" disabled selected>Choose module</option>
+                  {% for mod in subject.mods %}
+                  <option value="{{ mod.module_name }}">{{ mod.module_name }}</option>
+                  {% endfor %}
+                </select>
+                <select name="cMarks" id="cMarks">
+                  <option value="" disabled selected>Marks</option>
+                  {% for i in range(21) %}
+                  <option value="{{i}}">{{ i }}</option>
+                  {% endfor %}
+                </select>
+                <select name="cCO" id="cCO">
+                  <option value="" disabled selected>Choose Bloom's Taxonomy Level</option>
+                  {% for i in range(6) %}
+                  <option value="{{i+1}}">{{ i+1 }}</option>
+                  {% endfor %}
+                </select>
+                {% endfor %} {% else %}
+                <p class="op-question">Question {{sub.question_number}}</p>
+                {% for i in range(sub.subquestions) %}
+                <p class="op-option">Sub-Question {{i+1}}</p>
+                <select name="cMod" id="cMod">
+                  <option value="" disabled selected>Choose module</option>
+                  {% for mod in subject.mods %}
+                  <option value="{{ mod.module_name }}">{{ mod.module_name }}</option>
+                  {% endfor %}
+                </select>
+                <select name="cMarks" id="cMarks">
+                  <option value="" disabled selected>Marks</option>
+                  {% for i in range(21) %}
+                  <option value="{{i}}">{{ i }}</option>
+                  {% endfor %}
+                </select>
+                <select name="cCO" id="cCO">
+                  <option value="" disabled selected>Choose Bloom's Taxonomy Level</option>
+                  {% for i in range(6) %}
+                  <option value="{{i+1}}">{{ i+1 }}</option>
+                  {% endfor %}
+                </select>
+                {% endfor %} {% if (sub.question_number - compulsory)%2 !=0 %}
+                <p class="temp-or">OR</p>
+                {% endif %} {% endif %} {% endfor %}
+                <br />
+              <div class="app-form-group buttons">
+                <button type="submit" class="app-form-button">NEXT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 {% endblock %}

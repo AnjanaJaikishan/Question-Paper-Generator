@@ -15,6 +15,10 @@
           name="email"
           placeholder="Email"
           required
+          autocomplete="off"
+          readonly
+          onclick="this.removeAttribute(
+                'readOnly');"
         />
         <label for="email" class="login-label">Email</label>
 

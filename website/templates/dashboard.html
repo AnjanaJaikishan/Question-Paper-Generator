@@ -1,5 +1,31 @@
 {% extends "base.html" %} {% block title %} Dashboard {% endblock %} {% block
-content %} Dashboard
-<div class="semester" onClick="goToSem()">Semesters</div>
-<div class="generate" onClick="goToGenerate()">Generate Paper</div>
+content %}
+
+<!--<div class="modules-session">
+  <div class="semesters" onClick="goToSem()">Semesters</div>
+</div>
+<div class="modules-session">
+  <div class="generate" onClick="goToGenerate()">Generate Paper</div>
+</div> -->
+<div class="dashboard">
+  <div class="dashboard-container">
+    <div class="card">
+      <div class="face face1">
+        <div class="dashboard-buttons" onClick="goToSem()">+</div>
+      </div>
+      <div class="face face2">
+        <h2 align="center" class="dashboard-header">ADD QUESTIONS</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="face face1">
+        <div class="dashboard-buttons" onClick="goToGenerate()">+</div>
+      </div>
+      <div class="face face2">
+        <h2 align="center" class="dashboard-header">GENERATE PAPER</h2>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -1,18 +1,50 @@
 {% extends "base.html" %} {% block title %} Display Templates {% endblock %} {%
 block content %}
-<div>
-  {% for temp in temps %}
-  <div onClick="addSubquestions({{temp.id}}, {{semId}}, {{subId}})">
-    {{ temp.name }}
-  </div>
-  <button
-    type="button"
-    class="close"
-    onClick="deleteTemplate({{ temp.id }}, {{ semId }}, {{subId}})"
-  >
-    <span aria-hidden="true">&times;</span>
-  </button>
-  {% endfor %}
-  <div onClick="addTemplate({{semId}}, {{subId}})">Add template</div>
+
+<div class="header-img">
+  <p align="center" class="semester">SELECT TEMPLATE</p>
 </div>
+
+<div class="add-temp">
+  <div class="card">
+    <div class="face face1">
+      <div class="temp-buttons">
+        <div onClick="addTemplate({{semId}}, {{subId}})">+</div>
+      </div>
+    </div>
+    <div class="face face2">
+      <h2 align="center" class="dashboard-header">ADD TEMPLATE</h2>
+    </div>
+  </div>
+</div>
+
+<div class="select-temp">
+  <div class="select-sem-container">
+    {% for temp in temps %}
+    <div class="card">
+      <div class="face face1">
+        <div
+          class="sel-sem-buttons"
+          onClick="addSubquestions({{temp.id}}, {{semId}}, {{subId}})"
+        >
+          View Template
+          <div>
+            <button
+              type="button"
+              class="temp-btn"
+              onClick="deleteTemplate({{ temp.id }}, {{ semId }}, {{subId}})"
+            >
+              <span aria-hidden="true">Delete Template</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="face face2">
+        <h2 align="center" class="dashboard-header">{{ temp.name }}</h2>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% endblock %}

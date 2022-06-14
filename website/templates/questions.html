@@ -1,46 +1,61 @@
 {% extends "base.html" %} {% block title %}Questions{% endblock %}{% block
 content %}
-<h1 align="center">Questions</h1>
-<h1 align="center">Module: {{mod.module_name}}</h1>
-<ul class="list-group list-group-flush" id="subjects">
-  {% for ques in mod.questions %}
-  <li class="list-group-item">
-    <!-- <div
-      onClick="showQuestions({{mod.id}}, {{ mod.subject_id }}, {{ sem.id }})"
-    > -->
-    <span>{{ ques.question_content }}</span>
-    <!-- </div> -->
-    <button
-      type="button"
-      class="close"
-      onClick="deleteQuestion({{ ques.id }}, {{ ques.module_id }}, {{ sem.id }}, {{ sub.id }})"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <button
-      type="button"
-      class="close"
-      onClick="updateQuestion({{ ques.id }}, {{ ques.module_id }}, {{ sem.id }}, {{ sub.id }})"
-    >
-      <span aria-hidden="true">Click Me</span>
-    </button>
-    <span style="float: right">{{ ques.question_category }}</span>
-    <button
-      type="button"
-      class="close"
-      onClick="updateQuestionCategory({{ ques.id }}, {{ ques.module_id }}, {{ sem.id }}, {{ sub.id }})"
-      style="float: right; margin: 0px 15px"
-    >
-      <span aria-hidden="true">Click Me</span>
-    </button>
-  </li>
-  {% endfor %}
-</ul>
+<div class="subject-header-img">
+  <p align="center" class="semester">QUESTIONS</p>
+  <p align="center" class="sem-no-display">Module: {{mod.module_name}}</p>
+</div>
+
+<main class="questions-page">
+  <ol class="gradient-list">
+    {% for ques in mod.questions %}
+    <li>
+      <span class="questions">{{ ques.question_content }}</span>
+      <br />
+      <div class="question-btn">
+        <button
+          type="button"
+          class="close"
+          onClick="deleteQuestion({{ ques.id }}, {{ ques.module_id }}, {{ sem.id }}, {{ sub.id }})"
+        >
+          <span aria-hidden="true">Delete</span>
+        </button>
+        <button
+          type="button"
+          class="close"
+          onClick="updateQuestion({{ ques.id }}, {{ ques.module_id }}, {{ sem.id }}, {{ sub.id }})"
+        >
+          <span aria-hidden="true">Update</span>
+        </button>
+      </div>
+      <br />
+
+      <p class="bloom-level">Bloom's Level : {{ ques.question_category }}</p>
+
+      <button
+        type="button"
+        class="close"
+        onClick="updateQuestionCategory({{ ques.id }}, {{ ques.module_id }}, {{ sem.id }}, {{ sub.id }})"
+      >
+        <span aria-hidden="true">Change</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ol>
+</main>
 
 <form method="POST">
-  <textarea name="question" id="question" class="form-control"></textarea>
-  <div align="" center>
-    <button type="submit" class="btn btn-primary">Add Question</button>
+  <div class="add-area">
+    <div>
+      <textarea
+        name="question"
+        id="question"
+        class="form-control semester-textarea"
+        placeholder="Add Question"
+      ></textarea>
+    </div>
+    <div>
+      <button type="submit" class="sem-btn">Add</button>
+    </div>
   </div>
 </form>
 {% endblock %}

@@ -1,31 +1,63 @@
 {% extends "base.html" %} {% block title %} Display Template {% endblock %} {%
 block content %}
 <form method="POST">
-{% if mcqs>0 %}
-<h1>MCQs</h1>
-<div>Number of MCQs:{{ mcqs }} </div>
+  <div class="addtemp-background">
+    <div class="addtemp-container">
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-button close"></div>
+            <div class="screen-header-button maximize"></div>
+            <div class="screen-header-button minimize"></div>
+          </div>
+          <div class="screen-header-right">
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="tempview-app-title">
+              <span align="center">VIEW YOUR TEMPLATE</span>
+            </div>
+          </div>
+          <div class="screen-body-item">
+            <div class="app-form">
+              <div class="app-form-group">
+                {% if mcqs>0 %}
+                <p align="center" class="op-question">Multiple Choice Questions : {{ mcqs }}</p>
 {% endif %}{% for sub in subquestions %} {% if sub.question_number <=
 compulsory %}
-<h1>Question {{sub.question_number}}</h1>
+<p align="center" class="op-question">Question {{sub.question_number}}</p>
 {% set count = namespace(value=1) %} {% for queinfo in sub.subques %}
 <div>
-  <h5>{{count.value}}</h1>
-  Module: {{queinfo.module}} Marks: {{queinfo.marks}} Bloom's
-  Level:{{queinfo.bloom}}
+  <p align="center" class="op-option">Sub-Question {{count.value}}</p>
+  <div align="center" class="tempview-pattern"> Module: {{queinfo.module}} Marks: {{queinfo.marks}} Bloom's
+  Level:{{queinfo.bloom}} </div>
 </div>
 {% set count.value = count.value + 1 %} {% endfor %}{% else %}
-<h1>Question {{sub.question_number}}</h1>
+<p align="center" class="op-question">Question {{sub.question_number}}</h1>
 {% set count = namespace(value=1) %} {% for queinfo in sub.subques %}
-<div>
-  <h5>{{count.value}}</h1>
-  Module: {{queinfo.module}} Marks: {{queinfo.marks}} Bloom's
-  Level:{{queinfo.bloom}}
+<div >
+  <p align="center" class="op-option">Sub-Question {{count.value}}</p>
+ <div align="center" class="tempview-pattern"> Module: {{queinfo.module}} Marks: {{queinfo.marks}} Bloom's
+  Level:{{queinfo.bloom}} </div>
 </div>
 {% set count.value = count.value + 1 %} {% endfor %} {%
 if (sub.question_number - compulsory)%2 !=0 %}
-<h4>OR</h4>
+<p align="center" class="temp-or">OR</p>
 {% endif %} {% endif %} {% endfor %}
 <br />
-<button type="submit" class="btn btn-primary">Generate paper</button>
-</form> 
+              <div class="app-form-group buttons">
+                <button type="submit" class="tempview-button">GENERATE PAPER</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
 {% endblock %}

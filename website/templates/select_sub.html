@@ -1,8 +1,26 @@
 {% extends "base.html" %} {% block title %} Select Subject {% endblock %} {%
 block content %}
-<div>Select Subject</div>
-{% for sub in subs %}
-<div class="subList" onClick="displayCreateTemplate({{sub.id}}, {{semId}})">
-  {{sub.subject_ame}}
+
+<div class="header-img">
+  <p align="center" class="semester">SELECT SUBJECT</p>
 </div>
-{% endfor %} {% endblock %}
+<div class="select-sem">
+  <div class="select-sem-container">
+    {% for sub in subs %}
+    <div class="card">
+      <div class="face face1">
+        <div
+          class="sel-sem-buttons"
+          onClick="displayCreateTemplate({{sub.id}}, {{semId}})"
+        >
+          View Subjects
+        </div>
+      </div>
+      <div class="face face2">
+        <h2 align="center" class="dashboard-header">{{sub.subject_ame}}</h2>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
